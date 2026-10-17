@@ -21,13 +21,7 @@ typedef std::pair<ll, ll> pll;
 using namespace koma;
 
 void solve() {
-	string s;
-	cin >> s;
-	for(char c : s) {
-		if(c != 'A') cout << '.';
-		else cout << 'A';
-	}
-	cout << endl;
+	
 	return;
 }
 
