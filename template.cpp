@@ -1,4 +1,5 @@
 // https://github.com/komakoko/cpp-library
+// https://github.com/komakoko/cpp-snippets
 #include <atcoder/all>
 #include <bits/stdc++.h>
 using namespace std;
