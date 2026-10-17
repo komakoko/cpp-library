@@ -1,0 +1,9 @@
+#pragma once
+#include "io"
+#include "chmax"
+#include "chmin"
+#include "hash"
+#include "mymod"
+#include "mypow"
+#include "mysqrt"
+#include "rand_fast"
