@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 using namespace atcoder;
-using mint = modint998244353;
+using mint = static_modint<998244353>;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
