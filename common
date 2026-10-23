@@ -1,7 +1,6 @@
 #pragma once
 #include "utility/io"
-#include "utility/chmin"
-#include "utility/chmax"
+#include "utility/chminmax"
 #include "utility/mypow"
 #include "utility/mymod"
 #include "utility/mysqrt"

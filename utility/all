@@ -1,7 +1,6 @@
 #pragma once
 #include "io"
-#include "chmax"
-#include "chmin"
+#include "chminmax"
 #include "hash"
 #include "mymod"
 #include "mypow"

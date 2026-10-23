@@ -11,12 +11,6 @@ a より b が大きい場合に a を更新する。
 使用例: `long long x = 3; koma::chmax(x, 10LL); // x=10、true`
 */
 template <class T>
-bool chmax(T &a, const T &b) {
-	if(a < b) {
-		a = b;
-		return true;
-	}
-	return false;
-}
+bool chmax(T &a, const T &b) { if(a < b) { a = b; return true; } return false; }
 
 } // namespace koma
