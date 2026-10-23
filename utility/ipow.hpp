@@ -10,8 +10,10 @@ namespace koma {
 計算量: 乗算を O(1) として O(log(k+1))。
 使用例: `koma::ipow(2LL, 10); // 1024`
 */
-template <class T> T ipow(T base, long long k) {
-	assert(k >= 0); T result = 1;
+template <class T>
+T ipow(T base, long long k) {
+	assert(k >= 0);
+	T result = 1;
 	while(k > 0) {
 		if(k & 1) result *= base;
 		k >>= 1;
