@@ -16,8 +16,8 @@ typedef std::pair<ll, ll> pll;
 #define rrep1(i, n) for(ll i = (ll)(n); i >= 1; --i)
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
-#include <koma/common>
-// #include <koma/graph/all>
+#include <koma/common.hpp>
+// #include <koma/graph/all.hpp>
 using namespace koma;
 
 void solve() {

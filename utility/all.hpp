@@ -1,0 +1,8 @@
+#pragma once
+#include "io.hpp"
+#include "chminmax.hpp"
+#include "hash.hpp"
+#include "mod.hpp"
+#include "ipow.hpp"
+#include "isqrt.hpp"
+#include "rand_fast.hpp"
