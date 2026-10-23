@@ -17,12 +17,12 @@ n のビット数を B として、k >= B なら O(1)、それ以外は O(ceil(B
 
 使用例:
 ```cpp
-koma::mysqrt(10);    // 3
-koma::mysqrt(30, 3); // 3
-koma::mysqrt(16, 4); // 2
+koma::isqrt(10);    // 3
+koma::isqrt(30, 3); // 3
+koma::isqrt(16, 4); // 2
 ```
 */
-inline long long mysqrt(long long n, int k = 2) {
+inline long long isqrt(long long n, int k = 2) {
 	assert(n >= 0);
 	assert(k >= 1);
 	if(k == 1 || n <= 1) return n;
