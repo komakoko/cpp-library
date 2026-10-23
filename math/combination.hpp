@@ -50,6 +50,7 @@ class Comb {
   public:
 	/**
 	階乗 n! を計算する。
+
 	引数:
 	`n`: 0以上、法未満の整数。
 
@@ -73,6 +74,7 @@ class Comb {
 
 	/**
 	逆階乗 1/n! を法の下で計算する。
+
 	引数:
 	`n`: 0以上、法未満の整数。
 
@@ -96,6 +98,7 @@ class Comb {
 
 	/**
 	組合せ nCk を計算する。
+
 	引数:
 	`n`, `k`: 選ぶ元の個数と選ぶ個数。正常な入力では n < mod を満たすこと。
 
@@ -121,6 +124,7 @@ class Comb {
 
 	/**
 	順列 nPk を計算する。
+
 	引数:
 	`n`, `k`: 選ぶ元の個数と、順番を付けて選ぶ個数。正常な入力では n < mod を満たすこと。
 
@@ -160,6 +164,7 @@ inline Comb<Mint> &shared_combination() {
 /**
 組合せ nCkを求める。同じMint型の関数版comb・perm・fact・ifactで階乗と逆階乗を共有する。
 Mintはmod()とinv()を持つmodint型。法は素数とし、初回呼び出し後に変更しないこと。
+
 引数:
 `n`, `k`: 元の個数と選ぶ個数。n < 0、k < 0、k > n では0。それ以外は n < Mint::mod()。
 
@@ -183,6 +188,7 @@ inline Mint comb(int n, int k) {
 /**
 順列 nPkを求める。同じMint型の関数版comb・perm・fact・ifactで階乗と逆階乗を共有する。
 Mintはmod()とinv()を持つmodint型。法は素数とし、初回呼び出し後に変更しないこと。
+
 引数:
 `n`, `k`: 元の個数と選ぶ個数。n < 0、k < 0、k > n では0。それ以外は n < Mint::mod()。
 
@@ -206,6 +212,7 @@ inline Mint perm(int n, int k) {
 /**
 階乗 n!を求める。同じMint型の関数版comb・perm・fact・ifactで階乗と逆階乗を共有する。
 Mintはmod()とinv()を持つmodint型。法は素数とし、初回呼び出し後に変更しないこと。
+
 引数:
 `n`: 0以上 Mint::mod() 未満。
 
@@ -229,6 +236,7 @@ inline Mint fact(int n) {
 /**
 逆階乗 1/n!を求める。同じMint型の関数版comb・perm・fact・ifactで階乗と逆階乗を共有する。
 Mintはmod()とinv()を持つmodint型。法は素数とし、初回呼び出し後に変更しないこと。
+
 引数:
 `n`: 0以上 Mint::mod() 未満。
 

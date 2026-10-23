@@ -10,6 +10,7 @@ struct SieveResult {
 
 /**
 n以下の素数一覧と素数判定表を作る。
+
 引数:
 `n`: [1, n] の素数を求める。
 
@@ -57,6 +58,7 @@ inline std::vector<long long> sieve_primefactor(long long n) {
 
 /**
 正整数 n を素因数分解する。
+
 引数:
 `n`: 1以上の整数。
 `primes` (オーバーロード): 素数一覧。渡すと素因数候補が減って高速になる。
@@ -98,6 +100,7 @@ inline std::vector<std::pair<long long, int>> prime_factorization(long long n) {
 
 /**
 指定した素数一覧を使って正整数 n を素因数分解する。
+
 引数:
 `n`: 1以上の整数。
 `primes`: 昇順・重複なしの素数一覧。元の n の平方根以下の素数をすべて含むこと。

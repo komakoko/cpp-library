@@ -5,6 +5,7 @@ namespace koma {
 
 /**
 既存のハッシュ値に、値を1つ混ぜる。
+
 引数:
 `seed`: 更新するハッシュ値。最初は0で初期化する。
 `value`: 混ぜる値。
@@ -26,6 +27,7 @@ void hash_combine(std::size_t &seed, const T &value, Hasher hasher = {}) {
 
 /**
 複数の値を引数の順に混ぜて、ハッシュ値を作る。
+
 引数: `values`: 各型の `std::hash` が使える値。0個なら0を返す。
 返り値: `std::size_t` のハッシュ値。
 計算量: 各値のハッシュ計算量の合計に加えて O(引数の個数)。

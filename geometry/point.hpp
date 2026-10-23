@@ -5,7 +5,6 @@ namespace koma {
 
 /**
 `T` は符号付き整数型または浮動小数点型 既定値は `long long`。
-
 コンストラクタ:
 `Point()`: 原点 (0, 0) を作る。
 `Point(T x, T y)`: x座標とy座標を指定。
@@ -17,10 +16,26 @@ struct Point {
 	constexpr Point(T x, T y) : x(x), y(y) {}
 	constexpr Point operator+() const { return *this; }
 	constexpr Point operator-() const { return Point(-x, -y); }
-	constexpr Point &operator+=(const Point &q) { x += q.x; y += q.y; return *this; }
-	constexpr Point &operator-=(const Point &q) { x -= q.x; y -= q.y; return *this; }
-	constexpr Point &operator*=(T s) { x *= s; y *= s; return *this; }
-	constexpr Point &operator/=(T s) { x /= s; y /= s; return *this; }
+	constexpr Point &operator+=(const Point &q) {
+		x += q.x;
+		y += q.y;
+		return *this;
+	}
+	constexpr Point &operator-=(const Point &q) {
+		x -= q.x;
+		y -= q.y;
+		return *this;
+	}
+	constexpr Point &operator*=(T s) {
+		x *= s;
+		y *= s;
+		return *this;
+	}
+	constexpr Point &operator/=(T s) {
+		x /= s;
+		y /= s;
+		return *this;
+	}
 	friend constexpr Point operator+(Point p, const Point &q) { return p += q; }
 	friend constexpr Point operator-(Point p, const Point &q) { return p -= q; }
 	friend constexpr Point operator*(Point p, T s) { return p *= s; }
@@ -36,18 +51,15 @@ using PointI = Point<long long>;
 using PointF = Point<long double>;
 
 /**
-原点からの2つのベクトルの内積 a.x * b.x + a.y * b.y を求める。
+内積 a.x * b.x + a.y * b.y を求める。
+
 引数:
-`a`, `b`: 同じ座標型のベクトル。座標型は64ビット以下の符号付き整数型、または浮動小数点型。
+`a`, `b`:64ビット以下の符号付き整数型、または浮動小数点型。
 
 返り値:
-整数座標では、各座標を __int128_t に変換してから計算した __int128_t。
-各積と和が __int128_t の範囲に収まることが前提。全座標の絶対値が 2^63 - 1 以下なら満たす。
-浮動小数点座標では、座標と同じ型で計算した値。入力・中間結果・結果は有限値とし、誤差補正は行わない。
-零ベクトルとの内積は0。整数座標では結果が0なら両ベクトルは垂直、または少なくとも一方が零ベクトル。
-
-計算量:
-時間・追加メモリともに O(1)。
+__int128_t。
+各積と和を __int128_t の範囲に収める。全座標の絶対値が 2^63 - 1 以下なら満たす。
+整数座標では結果が0なら両ベクトルは垂直、または少なくとも一方が零ベクトル。
 
 使用例:
 ```cpp
@@ -65,14 +77,14 @@ template <class T>
 constexpr auto operator*(const Point<T> &a, const Point<T> &b) { return dot(a, b); }
 
 /**
-原点からの2つのベクトルの2次元外積 a.x * b.y - a.y * b.x を求める。
+外積 a.x * b.y - a.y * b.x を求める。
+
 引数:
-`a`, `b`: 同じ座標型のベクトル。座標型は64ビット以下の符号付き整数型、または浮動小数点型。
+`a`, `b`: 64ビット以下の符号付き整数型、または浮動小数点型。
+各積と和を __int128_t の範囲に収める。全座標の絶対値が 2^63 - 1 以下なら満たす。
 
 返り値:
-整数座標では、各座標を __int128_t に変換してから計算した __int128_t。
-各積と差が __int128_t の範囲に収まることが前提。全座標の絶対値が 2^63 - 1 以下なら満たす。
-浮動小数点座標では、座標と同じ型で計算した値。入力・中間結果・結果は有限値とし、誤差補正は行わない。
+__int128_t。
 符号は通常のx右向き・y上向きの座標系で、正なら a から見て b は左側、負なら右側。
 整数座標では0なら平行、または少なくとも一方が零ベクトル。絶対値は張られる平行四辺形の面積。
 点の差を渡す場合、引数の引き算は Point<T> の座標型で先に計算されることに注意。
