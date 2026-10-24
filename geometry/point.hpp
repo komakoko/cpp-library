@@ -51,6 +51,31 @@ using PointI = Point<long long>;
 using PointF = Point<long double>;
 
 /**
+原点から点 p へ向かうベクトルの偏角を求める。
+
+引数:
+`p`: 符号付き整数型または浮動小数点型の座標を持つ点。浮動小数点の座標は有限値とする。
+
+返り値:
+正のx軸から反時計回りに測った角度をラジアンで表す `long double`。範囲は [-π, π]。
+原点では0を返す。負のx軸上では y の符号付きゼロに応じて π または -π を返す。
+整数座標も浮動小数点に変換して計算するため、結果には丸め誤差を含む。
+
+計算量:
+O(1)。
+
+使用例:
+```cpp
+auto angle = koma::arg(koma::PointI(0, 1)); // π / 2
+```
+*/
+template <class T = long long>
+long double arg(const Point<T> &p) {
+	if(p.x == 0 && p.y == 0) return 0;
+	return std::atan2(static_cast<long double>(p.y), static_cast<long double>(p.x));
+}
+
+/**
 内積 a.x * b.x + a.y * b.y を求める。
 
 引数:
