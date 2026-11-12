@@ -1,4 +1,5 @@
 #pragma once
+#include "segtree.hpp"
 #include "mo.hpp"
 #include "doubling.hpp"
 #include "imos_2d.hpp"
