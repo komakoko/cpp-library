@@ -5,3 +5,4 @@
 #include "string/all.hpp"
 #include "utility/all.hpp"
 #include "others/all.hpp"
+#include "random/all.hpp"
