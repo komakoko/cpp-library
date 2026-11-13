@@ -9,6 +9,7 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
 typedef std::pair<ll, ll> pll;
+template <class T> using vec = vector<T>;
 #define sz(a) static_cast<ll>(a.size())
 #define rep(i, n) for(ll i = 0; i < (ll)(n); ++i)
 #define rep1(i, n) for(ll i = 1; i <= (ll)(n); ++i)
