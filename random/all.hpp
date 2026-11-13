@@ -4,3 +4,4 @@
 #include "rand_string.hpp"
 #include "rand_graph.hpp"
 #include "rand_tree.hpp"
+#include "rand_distinct.hpp"
