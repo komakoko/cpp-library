@@ -111,4 +111,36 @@ std::vector<long long> tree_diameter(const std::vector<std::vector<I>> &adj) {
 	return path;
 }
 
+/**
+木の中心をすべて求める。
+
+引数:
+`adj`: 重みなし無向木の隣接リスト。各辺を両方向に登録する。頂点番号は0始まり。
+
+返り値:
+中心の頂点番号を昇順に並べた `std::vector<long long>`。
+中心は、最も遠い頂点までの距離が最小になる頂点で、直径の経路の中央に位置する。
+頂点数のバランスを基準にする重心（`tree_centroids`）とは異なる。
+空のグラフなら空配列、空でない木なら1個または2個を返す。
+
+計算量:
+頂点数 N として O(N)。再帰は使用しない。
+
+使用例:
+```cpp
+koma::Graph g = {{1}, {0, 2}, {1, 3}, {2}};
+auto center = koma::tree_centers(g); // {1, 2}
+```
+*/
+template <class I>
+std::vector<long long> tree_centers(const std::vector<std::vector<I>> &adj) {
+	auto path = tree_diameter(adj);
+	const long long size = static_cast<long long>(path.size());
+	if(size == 0) return {};
+	std::vector<long long> result{path[size / 2]};
+	if(size % 2 == 0) result.push_back(path[size / 2 - 1]);
+	std::sort(result.begin(), result.end());
+	return result;
+}
+
 } // namespace koma
