@@ -1,5 +1,6 @@
 #pragma once
 #include "others/segtree.hpp"
+#include "container/range_add_fenwick_tree.hpp"
 #include "container/ordered_set.hpp"
 #include "container/ordered_multi_set.hpp"
 #include "utility/io.hpp"
