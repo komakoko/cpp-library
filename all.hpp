@@ -1,5 +1,6 @@
 #pragma once
 #include "common.hpp"
+#include "container/all.hpp"
 #include "graph/all.hpp"
 #include "math/all.hpp"
 #include "string/all.hpp"
