@@ -1,5 +1,5 @@
 #pragma once
-#include "graph_types.hpp"
+#include "adj_list.hpp"
 #include <bits/stdc++.h>
 
 namespace koma {

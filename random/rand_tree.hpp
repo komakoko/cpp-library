@@ -1,6 +1,6 @@
 #pragma once
 #include "rand_ll.hpp"
-#include "../graph/graph_types.hpp"
+#include "../graph/adj_list.hpp"
 #include <bits/stdc++.h>
 
 namespace koma {
