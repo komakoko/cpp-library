@@ -1,4 +1,5 @@
 #pragma once
+#include "sequence/cumsum.hpp"
 #include "utility/io.hpp"
 #include "utility/chminmax.hpp"
 #include "utility/ipow.hpp"
