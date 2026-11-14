@@ -5,18 +5,6 @@
 using namespace std;
 using namespace atcoder;
 using mint = static_modint<998244353>;
-typedef long long ll;
-typedef unsigned long long ull;
-typedef long double ld;
-typedef std::pair<ll, ll> pll;
-template <class T> using vec = vector<T>;
-#define sz(a) static_cast<ll>(a.size())
-#define rep(i, n) for(ll i = 0; i < (ll)(n); ++i)
-#define rep1(i, n) for(ll i = 1; i <= (ll)(n); ++i)
-#define rrep(i, n) for(ll i = (ll)(n) - 1; i >= 0; --i)
-#define rrep1(i, n) for(ll i = (ll)(n); i >= 1; --i)
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
 #include <koma/common.hpp>
 // #include <koma/graph/all.hpp>
 using namespace koma;

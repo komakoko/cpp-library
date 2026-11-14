@@ -1,11 +1,7 @@
 #pragma once
-#include "container/segtree_aliases.hpp"
-#include "container/lazy_segtree_aliases.hpp"
-#include "container/range_add_fenwick_tree.hpp"
-#include "container/ordered_set.hpp"
-#include "container/ordered_multi_set.hpp"
 #include "utility/io.hpp"
 #include "utility/chminmax.hpp"
 #include "utility/ipow.hpp"
 #include "utility/mod.hpp"
 #include "utility/isqrt.hpp"
+#include "utility/shortcuts.hpp"

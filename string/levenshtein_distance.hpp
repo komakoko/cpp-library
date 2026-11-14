@@ -39,7 +39,7 @@ template <class R1, class R2>
 long long levenshtein_distance(const R1 &s, const R2 &t) {
 	auto view = []<class R>(const R &range) {
 		if constexpr(std::convertible_to<const R &, std::string_view>) return std::string_view(range);
-		else return std::views::all(range);
+		else return (std::views::all)(range);
 	};
 	auto a = view(s);
 	auto b = view(t);

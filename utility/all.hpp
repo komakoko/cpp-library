@@ -7,3 +7,4 @@
 #include "ipow.hpp"
 #include "isqrt.hpp"
 #include "rand_fast.hpp"
+#include "shortcuts.hpp"
