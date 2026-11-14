@@ -15,7 +15,7 @@ namespace koma {
 n(n-1)/2はlong longに収まること。不正な引数では `std::invalid_argument`。
 
 返り値:
-0始まりの隣接リスト `koma::Graph`。各辺を両方向に格納する。
+0始まりの隣接リスト `koma::AdjList`。各辺を両方向に格納する。
 自己ループ・多重辺はない。完全グラフに近い場合も再抽選を繰り返さない。
 
 計算量:
@@ -29,7 +29,7 @@ for(long long u = 0; u < 5; ++u)
         if(u < v) std::cout << u + 1 << " " << v + 1 << "\n";
 ```
 */
-inline Graph rand_graph(long long n, long long m) {
+inline AdjList rand_graph(long long n, long long m) {
 	if(n < 0 || m < 0) throw std::invalid_argument("rand_graph: expected n >= 0 and m >= 0");
 	__int128 count = static_cast<__int128>(n) * (n - 1) / 2;
 	if(count > LLONG_MAX || m > count)
@@ -41,7 +41,7 @@ inline Graph rand_graph(long long n, long long m) {
 		long long x = rand_ll(0, j);
 		if(!edges.insert(x).second) edges.insert(j);
 	}
-	Graph adj(n);
+	AdjList adj(n);
 	for(long long x : edges) {
 		long long low = 0, high = n - 1;
 		while(high - low > 1) {

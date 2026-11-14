@@ -18,7 +18,7 @@ dist と prev の長さは等しく、bfs の返り値と同じ条件を満た�
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {2}, {}};
+koma::AdjList g = {{1}, {2}, {}};
 auto res = koma::bfs(0, g);
 auto path = res.restore_path(2); // {0, 1, 2}
 ```
@@ -42,7 +42,7 @@ struct BfsResult {
 
 	使用例:
 	```cpp
-	koma::Graph g = {{1}, {2}, {}};
+	koma::AdjList g = {{1}, {2}, {}};
 	auto res = koma::bfs(0, g);
 	auto path = res.restore_path(2); // {0, 1, 2}
 	```
@@ -77,7 +77,7 @@ struct BfsResult {
 
 使用例:
 ```cpp
-koma::Graph g = {{1, 2}, {3}, {3}, {}, {}};
+koma::AdjList g = {{1, 2}, {3}, {3}, {}, {}};
 auto res = koma::bfs(std::vector<long long>{0, 4}, g);
 auto dist = res.dist;            // {0, 1, 1, 2, 0}
 auto path = res.restore_path(3); // {0, 1, 3}
@@ -126,7 +126,7 @@ BfsResult bfs(const std::vector<S> &starts, const std::vector<std::vector<I>> &a
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {2}, {}};
+koma::AdjList g = {{1}, {2}, {}};
 auto res = koma::bfs(0, g);
 auto path = res.restore_path(2); // {0, 1, 2}
 ```
@@ -153,7 +153,7 @@ BfsResult bfs(long long start, const std::vector<std::vector<I>> &adj) {
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {2}, {}};
+koma::AdjList g = {{1}, {2}, {}};
 auto res = koma::bfs({0, 2}, g);
 auto dist = res.dist; // {0, 1, 0}
 ```

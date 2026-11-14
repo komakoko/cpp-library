@@ -67,7 +67,7 @@ struct DijkstraResult {
 
 使用例:
 ```cpp
-koma::WeightedGraph g(3);
+koma::WeightedAdjList g(3);
 g[0].push_back({1, 5});
 g[0].push_back({2, 1});
 g[2].push_back({1, 2});
@@ -81,7 +81,7 @@ auto prev = res.prev;              // {-1, 2, -1}
 template <class S, class I, class W>
 DijkstraResult<W> dijkstra(
 	const std::vector<S> &starts,
-	const WeightedGraph<W, I> &adj,
+	const WeightedAdjList<W, I> &adj,
 	std::type_identity_t<W> inf = std::numeric_limits<W>::max()) {
 	static_assert(std::is_integral_v<I> && std::is_integral_v<W>);
 	static_assert(!std::is_same_v<I, bool> && !std::is_same_v<W, bool>);
@@ -143,7 +143,7 @@ restore_path(goal) で最短経路を復元できる。
 
 使用例:
 ```cpp
-koma::WeightedGraph g = {{{1, 5}, {2, 1}}, {}, {{1, 2}}};
+koma::WeightedAdjList g = {{{1, 5}, {2, 1}}, {}, {{1, 2}}};
 auto res = koma::dijkstra(0, g);
 auto path = res.restore_path(1); // {0, 2, 1}
 ```
@@ -151,7 +151,7 @@ auto path = res.restore_path(1); // {0, 2, 1}
 template <class I, class W>
 DijkstraResult<W> dijkstra(
 	long long start,
-	const WeightedGraph<W, I> &adj,
+	const WeightedAdjList<W, I> &adj,
 	std::type_identity_t<W> inf = std::numeric_limits<W>::max()) {
 	return dijkstra(std::vector<long long>{start}, adj, inf);
 }
@@ -175,7 +175,7 @@ restore_path(goal) で最も近い始点からの経路を復元できる。
 
 使用例:
 ```cpp
-koma::WeightedGraph g = {{{1, 5}, {2, 1}}, {}, {{1, 2}}};
+koma::WeightedAdjList g = {{{1, 5}, {2, 1}}, {}, {{1, 2}}};
 auto res = koma::dijkstra({0, 2}, g);
 auto path = res.restore_path(1); // {2, 1}
 ```
@@ -183,7 +183,7 @@ auto path = res.restore_path(1); // {2, 1}
 template <class I, class W>
 DijkstraResult<W> dijkstra(
 	std::initializer_list<long long> starts,
-	const WeightedGraph<W, I> &adj,
+	const WeightedAdjList<W, I> &adj,
 	std::type_identity_t<W> inf = std::numeric_limits<W>::max()) {
 	return dijkstra(std::vector<long long>(starts), adj, inf);
 }

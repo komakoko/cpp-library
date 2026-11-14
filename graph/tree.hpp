@@ -20,7 +20,7 @@ namespace koma {
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {0, 2}, {1, 3}, {2}};
+koma::AdjList g = {{1}, {0, 2}, {1, 3}, {2}};
 auto centers = koma::tree_centroids(g); // {1, 2}
 ```
 */
@@ -72,7 +72,7 @@ std::vector<long long> tree_centroids(const std::vector<std::vector<I>> &adj) {
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {0, 2}, {1, 3}, {2}};
+koma::AdjList g = {{1}, {0, 2}, {1, 3}, {2}};
 auto path = koma::tree_diameter(g); // {0, 1, 2, 3} またはその逆順
 long long length = static_cast<long long>(path.size()) - 1; // 3
 auto u = path.front(), v = path.back(); // 直径の両端
@@ -128,7 +128,7 @@ std::vector<long long> tree_diameter(const std::vector<std::vector<I>> &adj) {
 
 使用例:
 ```cpp
-koma::Graph g = {{1}, {0, 2}, {1, 3}, {2}};
+koma::AdjList g = {{1}, {0, 2}, {1, 3}, {2}};
 auto center = koma::tree_centers(g); // {1, 2}
 ```
 */

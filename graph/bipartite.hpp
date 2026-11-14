@@ -21,7 +21,7 @@ namespace koma {
 
 使用例:
 ```cpp
-koma::Graph g(4);
+koma::AdjList g(4);
 g[0].push_back(1);
 g[1].push_back(0);
 g[1].push_back(2);

@@ -13,7 +13,7 @@ namespace koma {
 共通の生成器 `rand_engine` を使う。すべての木を等確率で生成するものではない。
 
 返り値:
-0始まりの隣接リスト `koma::Graph`。各辺を両方向に格納する。
+0始まりの隣接リスト `koma::AdjList`。各辺を両方向に格納する。
 n > 0なら連結で、辺数はn-1。n = 0なら空配列。
 
 計算量:
@@ -24,9 +24,9 @@ O(n)。
 auto adj = koma::rand_tree(10);
 ```
 */
-inline Graph rand_tree(long long n) {
+inline AdjList rand_tree(long long n) {
 	if(n < 0) throw std::invalid_argument("rand_tree: expected n >= 0");
-	Graph adj(n);
+	AdjList adj(n);
 	std::vector<long long> order(n);
 	std::iota(order.begin(), order.end(), 0LL);
 	std::shuffle(order.begin(), order.end(), rand_engine);
