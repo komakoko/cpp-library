@@ -17,6 +17,14 @@ void solve() {
 	return;
 }
 
-// clang-format off
-int main() { cin.tie(nullptr); ios::sync_with_stdio(false); int test_case = 1; cout << std::setprecision(15); while(test_case--) { solve(); } return 0; }
-// clang-format on
+int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
+	int test_case = 1;
+	// cin >> test_case;
+	cout << std::setprecision(15);
+	while(test_case--) {
+		solve();
+	}
+	return 0;
+}
