@@ -55,4 +55,32 @@ std::istream &operator>>(std::istream &is, std::vector<T> &a) {
 	return is;
 }
 
+/**
+標準入力から指定した型の値を読み込んで返す。
+
+引数:
+`T`: 入力する型。既定値は long long。std::cin >> value で読み込める型を指定する。
+入力には T の値を読み込めるデータがあること。
+
+返り値:
+読み込んだ T 型の値。
+
+計算量:
+T の入力処理にかかる時間。
+
+使用例:
+```cpp
+auto x = koma::in();
+auto s = koma::in<std::string>();
+std::set<std::pair<long long, long long>> points;
+points.insert({koma::in(), koma::in()});
+```
+*/
+template <class T = long long>
+T in() {
+	T value{};
+	std::cin >> value;
+	return value;
+}
+
 } // namespace koma
