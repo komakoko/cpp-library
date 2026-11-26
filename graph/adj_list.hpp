@@ -8,6 +8,75 @@ using AdjList = std::vector<std::vector<long long>>;
 template <class W = long long, class I = long long>
 using WeightedAdjList = std::vector<std::vector<std::pair<I, W>>>;
 
+/**
+隣接リストのすべての辺の向きを反転する。
+
+引数:
+`adj`: 重みなしの隣接リスト。頂点番号の型 I は bool 以外の整数型。
+各行き先は 0 <= v < adj.size()。すべての頂点番号が I で表現できること。
+
+返り値:
+入力と同じ型の逆向きの隣接リスト。元の adj は変更しない。
+自己ループ・多重辺・孤立頂点を保持する。各頂点の隣接リストの順序は保証しない。
+
+計算量:
+頂点数 V、辺数 E として O(V + E)。
+
+使用例:
+```cpp
+koma::AdjList g = {{1, 2}, {2}, {}};
+auto rev = koma::reverse_adj_list(g); // {{}, {0}, {0, 1}}
+```
+*/
+template <class I>
+std::vector<std::vector<I>> reverse_adj_list(const std::vector<std::vector<I>> &adj) {
+	static_assert(std::is_integral_v<I> && !std::is_same_v<I, bool>);
+	std::vector<std::vector<I>> reversed(adj.size());
+	for(std::size_t u = 0; u < adj.size(); ++u) {
+		assert(std::in_range<I>(u));
+		for(auto v : adj[u]) {
+			assert(std::cmp_greater_equal(v, 0) && std::cmp_less(v, adj.size()));
+			reversed[v].push_back(static_cast<I>(u));
+		}
+	}
+	return reversed;
+}
+
+/**
+重み付き隣接リストのすべての辺の向きを反転する。
+
+引数:
+`adj`: 各辺が {行き先, 重み} の隣接リスト。頂点番号の型 I は bool 以外の整数型。
+各行き先は 0 <= v < adj.size()。すべての頂点番号が I で表現できること。
+重みの型 W はコピー可能であること。
+
+返り値:
+入力と同じ型の逆向きの隣接リスト。元の adj は変更しない。
+重み・自己ループ・多重辺・孤立頂点を保持する。各頂点の隣接リストの順序は保証しない。
+
+計算量:
+頂点数 V、辺数 E として O(V + E)。重みのコピーを O(1) とする。
+
+使用例:
+```cpp
+koma::WeightedAdjList<> g = {{{1, 5}}, {{2, -2}}, {}};
+auto rev = koma::reverse_adj_list(g); // {{}, {{0, 5}}, {{1, -2}}}
+```
+*/
+template <class I, class W>
+std::vector<std::vector<std::pair<I, W>>> reverse_adj_list(const std::vector<std::vector<std::pair<I, W>>> &adj) {
+	static_assert(std::is_integral_v<I> && !std::is_same_v<I, bool>);
+	std::vector<std::vector<std::pair<I, W>>> reversed(adj.size());
+	for(std::size_t u = 0; u < adj.size(); ++u) {
+		assert(std::in_range<I>(u));
+		for(const auto &[v, weight] : adj[u]) {
+			assert(std::cmp_greater_equal(v, 0) && std::cmp_less(v, adj.size()));
+			reversed[v].emplace_back(static_cast<I>(u), weight);
+		}
+	}
+	return reversed;
+}
+
 namespace detail {
 
 /** 辺の両端を読み込み、0始まりの頂点番号に直す。入力失敗時は std::ios_base::failure。 */
