@@ -3,6 +3,7 @@
 #include "algorithm/all.hpp"
 #include "container/all.hpp"
 #include "graph/all.hpp"
+#include "geometry/all.hpp"
 #include "math/all.hpp"
 #include "string/all.hpp"
 #include "sequence/all.hpp"
