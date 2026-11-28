@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Expand a C++ submission and copy it to the Windows clipboard from WSL."""
+
+import argparse
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+from bundle_cpp import bundle
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", type=Path)
+    parser.add_argument("--stdout", action="store_true", help="print instead of copying")
+    args = parser.parse_args()
+    library = Path(__file__).resolve().parent.parent
+    try:
+        expanded = bundle(args.source, [Path.cwd(), library.parent], library)
+    except (OSError, ValueError) as error:
+        parser.error(str(error))
+    if args.stdout:
+        sys.stdout.buffer.write(expanded)
+        return 0
+    clipboard = shutil.which("clip.exe")
+    if not clipboard:
+        parser.error("clip.exe is missing; use --stdout to output the expanded code")
+    # clip.exe accepts UTF-16LE, preserving Japanese comments on Windows.
+    subprocess.run(
+        [clipboard], input=expanded.decode("utf-8").encode("utf-16le"), check=True
+    )
+    print(f"Copied bundled code: {args.source}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
